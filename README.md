@@ -1,6 +1,6 @@
 # Course Scheduling in Classrooms – שיבוץ קורסים בכיתות
 
-**Team:** [Full name 1], [Full name 2], [Full name 3]
+**Team:** Muhammad Fadous (individual work)
 
 C++17 program that solves three optimization problems on a list of courses held on one day:
 
@@ -22,12 +22,12 @@ Both sort orders use a hand-written **merge sort** (no library sort).
 | `Algorithms.cpp` | Merge sort (2 orders), greedy COUNT, greedy ROOMS, DP (shared core for linear / binary p(j)), 3 exhaustive checkers. No `main` |
 | `main.cpp` | Reads input, runs the algorithms, prints `COUNT`, `ROOMS`, `ENROLLMENTS` |
 | `tests.cpp` | doctest tests: given examples, edge cases, p(j) critique, random comparison with exhaustive solutions |
-| `doctest.h` | doctest single-header library (v2.4.11) |
+| `doctest.h` | doctest single-header library (v2.5.3) |
 | `testdata/` | `sample`, `empty`, `ties` from the assignment + extra cases (`.in` / `.out`) |
 
 ## Build and run
 
-Tested with **g++ 13.3.0** (Ubuntu 24.04), `-std=c++17`.
+Tested with **g++ 15.2.0** (MinGW-W64, Windows 11) and **g++ 13.3.0** (Ubuntu 24.04), `-std=c++17`. Result: 24 test cases, 22,761 assertions, all passed; no compiler warnings.
 
 ```bash
 # main program (main.cpp + Algorithms.cpp)
@@ -49,10 +49,18 @@ for t in sample empty ties touching overlap_all weighted; do
 done
 ```
 
-On Windows (MinGW) the same commands work in a terminal; use `scheduler.exe < testdata\sample.in`.
+On Windows (cmd, MinGW):
+
+```bat
+g++ -std=c++17 -Wall -Wextra -O2 main.cpp Algorithms.cpp -o scheduler.exe
+g++ -std=c++17 -Wall -Wextra -O2 tests.cpp Algorithms.cpp -o tests.exe
+tests.exe
+scheduler.exe < testdata\sample.in > out.txt
+fc /W out.txt testdata\sample.out
+```
 
 **External dependency:** only `doctest.h` (header-only), included in the repository.
-Source: https://github.com/doctest/doctest/releases (file `doctest/doctest.h`).
+Source: https://github.com/doctest/doctest (release v2.5.3, file `doctest/doctest.h`).
 
 ## Input / output format
 
