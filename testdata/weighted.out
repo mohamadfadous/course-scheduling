@@ -1,0 +1,15 @@
+COUNT
+3 7
+Greedy_A 0 10 2
+Greedy_C 10 20 2
+Late 25 40 3
+ROOMS
+2
+1 Greedy_A 0 10 2
+1 Greedy_C 10 20 2
+1 Late 25 40 3
+2 Heavy 5 25 10
+ENROLLMENTS
+2 13
+Heavy 5 25 10
+Late 25 40 3
